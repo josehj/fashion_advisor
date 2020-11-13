@@ -17,7 +17,7 @@ class FashionStyleGarmentsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create fashion_style_garment" do
     assert_difference('FashionStyleGarment.count') do
-      post fashion_style_garments_url, params: { fashion_style_garment: { category: @fashion_style_garment.category, fashion_style_id: @fashion_style_garment.fashion_style_id, name: @fashion_style_garment.name } }
+      post fashion_style_garments_url, params: { fashion_style_garment: { garment_type_id: @fashion_style_garment.garment_type_id, fashion_style_id: @fashion_style_garment.fashion_style_id, name: @fashion_style_garment.name } }
     end
 
     assert_redirected_to fashion_style_garment_url(FashionStyleGarment.last)
@@ -34,7 +34,7 @@ class FashionStyleGarmentsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update fashion_style_garment" do
-    patch fashion_style_garment_url(@fashion_style_garment), params: { fashion_style_garment: { category: @fashion_style_garment.category, fashion_style_id: @fashion_style_garment.fashion_style_id, name: @fashion_style_garment.name } }
+    patch fashion_style_garment_url(@fashion_style_garment), params: { fashion_style_garment: { garment_type_id: @fashion_style_garment.garment_type_id, fashion_style_id: @fashion_style_garment.fashion_style_id, name: @fashion_style_garment.name } }
     assert_redirected_to fashion_style_garment_url(@fashion_style_garment)
   end
 

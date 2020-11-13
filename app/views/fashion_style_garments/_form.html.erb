@@ -13,16 +13,8 @@
   <div class="row">
     <div class="col-sm-6">
       <div class="form-group">
-        <%= form.label :name %>
-        <%= form.text_field :name, class: "form-control" %>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-6">
-      <div class="form-group">
-        <%= form.label :category %>
-        <%= form.select :category, options_for_select(FashionStyleGarment.translated_categories.map { |translation, k, _v| [translation, k] }), {}, { class: "form-control"} %>
+        <%= form.label :garment_type_id %>
+        <%= form.select :garment_type_id, options_for_select(GarmentType.all.map{|s|[s.name, s.id]}), {}, { class: "form-control"} %>
       </div>
     </div>
   </div>

@@ -1,18 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong><%= FashionStyleGarment.human_attribute_name(:name) %>:</strong>
-  <%= @fashion_style_garment.name %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @fashion_style_garment.category %>
-</p>
+<h1><%= FashionStyleGarment.model_name.human %></h1>
 
 <p>
   <strong>Fashion style:</strong>
-  <%= @fashion_style_garment.fashion_style_id %>
+  <%= FashionStyle.find(@fashion_style_garment.fashion_style_id)&.name %>
+</p>
+
+<p>
+  <strong>Garment Type:</strong>
+  <%= GarmentType.find(@fashion_style_garment.garment_type_id)&.name %>
 </p>
 
 

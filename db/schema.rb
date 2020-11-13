@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_13_005100) do
+ActiveRecord::Schema.define(version: 2020_11_13_012628) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,11 +38,10 @@ ActiveRecord::Schema.define(version: 2020_11_13_005100) do
   end
 
   create_table "fashion_style_garments", force: :cascade do |t|
-    t.string "name"
-    t.integer "category"
     t.bigint "fashion_style_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "garment_type_id"
     t.index ["fashion_style_id"], name: "index_fashion_style_garments_on_fashion_style_id"
   end
 
@@ -55,6 +54,13 @@ ActiveRecord::Schema.define(version: 2020_11_13_005100) do
   create_table "garment_attributes", force: :cascade do |t|
     t.string "name"
     t.integer "kind"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "garment_types", force: :cascade do |t|
+    t.string "name"
+    t.integer "category"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

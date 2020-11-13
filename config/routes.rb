@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :garment_types
   resources :bodies
   resources :garment_attributes
   resources :fashion_style_garments

@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Garment Types</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col"><%= GarmentType.human_attribute_name(:name) %></th>
+      <th scope="col">Category</th>
+      <th scope="col" colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @garment_types.each do |garment_type| %>
+      <tr>
+        <td><%= garment_type.name %></td>
+        <td><%= garment_type.translated_category %></td>
+        <td>
+          <%= link_to garment_type, class: "icon-button mr-3", title: 'show' do %>
+            <%=fa_icon('eye')%>
+          <% end %>
+          <%= link_to edit_garment_type_path(garment_type), class: "icon-button mr-3", title: 'edit' do %>
+            <%=fa_icon('edit')%>
+          <% end %>
+          <%= link_to garment_type, method: :delete, data: { confirm: 'Are you sure?' }, class: "icon-button", title: 'delete' do %>
+            <%=fa_icon('trash')%>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Garment Type', new_garment_type_path %>

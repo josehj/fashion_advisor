@@ -80,9 +80,8 @@ class FashionStyleGarmentsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def fashion_style_garment_params
       params.require(:fashion_style_garment).permit(
-        :name,
-        :category,
-        :fashion_style_id
+        :fashion_style_id,
+        :garment_type_id
       )
     end
     # Only allow a list of trusted parameters through.

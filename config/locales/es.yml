@@ -15,6 +15,9 @@ es:
       garment_attribute:
         one: Atributo de prenda
         other: Atributos de prenda
+      garment_type:
+        one: Tipo de prenda
+        other: Tipos de prenda
       body:
         one: Tipo de cuerpo
         other: Tipos de cuerpo
@@ -22,6 +25,8 @@ es:
       fashion_style:
         name: Nombre
       fashion_style_garment:
+        name: Nombre
+      garment_type:
         category: Categoria
         category_list:
           tops: POLERAS Y BLUSAS

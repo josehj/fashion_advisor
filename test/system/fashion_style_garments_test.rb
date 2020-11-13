@@ -14,9 +14,8 @@ class FashionStyleGarmentsTest < ApplicationSystemTestCase
     visit fashion_style_garments_url
     click_on "Nueva Prenda por Estilo de moda"
 
-    fill_in "Category", with: @fashion_style_garment.category
     fill_in "Fashion style", with: @fashion_style_garment.fashion_style_id
-    fill_in "Name", with: @fashion_style_garment.name
+    fill_in "Garment type", with: @fashion_style_garment.garment_type_id
     click_on "Create Fashion style garment"
 
     assert_text "Fashion style garment was successfully created"
@@ -29,6 +28,7 @@ class FashionStyleGarmentsTest < ApplicationSystemTestCase
 
     fill_in "Category", with: @fashion_style_garment.category
     fill_in "Fashion style", with: @fashion_style_garment.fashion_style_id
+    fill_in "Garment type", with: @fashion_style_garment.garment_type_id
     fill_in "Name", with: @fashion_style_garment.name
     click_on "Update Fashion style garment"
 

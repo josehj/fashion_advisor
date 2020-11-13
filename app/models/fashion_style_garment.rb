@@ -6,18 +6,16 @@
 #
 #  created_at           :datetime         not null
 #  id                   :bigint(8)        not null, primary key
-#  category             :integer
 #  fashion_style_id     :bigint(8)        not null
-#  name                 :string
+#  garment_type_id      :bigint(8)        not null
 #  updated_at           :datetime         not null
 #
 class FashionStyleGarment < ApplicationRecord
   belongs_to :fashion_style
+  belongs_to :garment_type
 
-  validates :name, presence: true
   has_many :fashion_garment_attributes, dependent: :destroy
   has_many :all_attributes, through: :fashion_garment_attributes, source: :garment_attribute
-
   
   has_many :neck_attributes, -> { neck }, class_name: 'GarmentAttribute', through: :fashion_garment_attributes, inverse_of: :fashion_style_garment 
   has_many :sleeve_attributes, -> { sleeve }, class_name: 'GarmentAttribute', through: :fashion_garment_attributes, inverse_of: :fashion_style_garment 
@@ -32,13 +30,4 @@ class FashionStyleGarment < ApplicationRecord
   has_many :details_attributes, -> { details }, class_name: 'GarmentAttribute', through: :fashion_garment_attributes, inverse_of: :fashion_style_garment 
   has_many :color_attributes, -> { color }, class_name: 'GarmentAttribute', through: :fashion_garment_attributes, inverse_of: :fashion_style_garment 
 
-  enum category: {
-    tops: 1,
-    coats: 2,
-    full_body: 3,
-    sweaters: 4,
-    long_bottoms: 5,
-    short_bottoms: 6
-  }
-  translate_enum :category
 end
