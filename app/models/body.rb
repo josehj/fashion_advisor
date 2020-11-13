@@ -25,7 +25,8 @@ class Body < ApplicationRecord
   has_many :bottom_length_attributes, -> { bottom_length }, class_name: 'GarmentAttribute', through: :body_garment_attributes, inverse_of: :body 
   has_many :bottom_fit_attributes, -> { bottom_fit }, class_name: 'GarmentAttribute', through: :body_garment_attributes, inverse_of: :body 
   has_many :bottom_style_attributes, -> { bottom_style }, class_name: 'GarmentAttribute', through: :body_garment_attributes, inverse_of: :body 
-  has_many :garment_size_attributes, -> { garment_size }, class_name: 'GarmentAttribute', through: :body_garment_attributes, inverse_of: :body 
+  has_many :top_size_attributes, -> { top_size }, class_name: 'GarmentAttribute', through: :body_garment_attributes, inverse_of: :body 
+  has_many :bottom_size_attributes, -> { bottom_size }, class_name: 'GarmentAttribute', through: :body_garment_attributes, inverse_of: :body 
   has_many :details_attributes, -> { details }, class_name: 'GarmentAttribute', through: :body_garment_attributes, inverse_of: :body 
   has_many :color_attributes, -> { color }, class_name: 'GarmentAttribute', through: :body_garment_attributes, inverse_of: :body 
 

@@ -23,9 +23,10 @@ class GarmentAttribute < ApplicationRecord
     bottom_length: 7,
     bottom_fit: 8,
     bottom_style: 9,
-    garment_size: 10,
-    details: 11,
-    color: 12,
+    top_size: 10,
+    botom_size: 11,
+    details: 12,
+    color: 13
   }
   translate_enum :kind
 
@@ -38,7 +39,8 @@ class GarmentAttribute < ApplicationRecord
   scope :bottom_length, -> { where(kind: :bottom_length) }
   scope :bottom_fit, -> { where(kind: :bottom_fit) }
   scope :bottom_style, -> { where(kind: :bottom_style) }
-  scope :garment_size, -> { where(kind: :garment_size) }
+  scope :top_size, -> { where(kind: :top_size) }
+  scope :bottom_size, -> { where(kind: :bottom_size) }
   scope :details, -> { where(kind: :details) }
   scope :color, -> { where(kind: :color) }
 end

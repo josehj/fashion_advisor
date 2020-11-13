@@ -43,10 +43,11 @@ es:
           top_length: Largo Top
           top_fit: Fit Top
           fabrics: Tela
-          print: Print
+          prints: Print
           bottom_length: Largo Bottom
-          bottom_fit: Fit Bottom
+          bottom_fit: Tiro Botrom
           bottom_style: Estilo Bottom
-          garment_size: Talla
+          bottom_size: Talla Pantalon
+          top_size: Talla Polera
           details: Detalles
           color: Color
