@@ -31,7 +31,7 @@ $color-text: #4A5043;
 body {
   font-family: "Lato", sans-serif;
   color: $color-quaternary;
-  h1 {
+  h1, h2, h3 {
     color: $color-primary;
   }
 }
@@ -83,4 +83,10 @@ a:hover {
 .icon-button:visited {
   color: $color-secondary;
   font-size: 15px;
+}
+
+// /////////////////////
+
+.garment-attribute-select {
+  height: 240px !important;
 }

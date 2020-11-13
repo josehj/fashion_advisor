@@ -24,7 +24,7 @@ class GarmentAttribute < ApplicationRecord
     bottom_fit: 8,
     bottom_style: 9,
     top_size: 10,
-    botom_size: 11,
+    bottom_size: 11,
     details: 12,
     color: 13
   }
