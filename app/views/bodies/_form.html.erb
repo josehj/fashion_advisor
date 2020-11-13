@@ -1,0 +1,39 @@
+<%= form_with(model: body, local: true) do |form| %>
+  <% if body.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(body.errors.count, "error") %> prohibited this body from being saved:</h2>
+
+      <ul>
+        <% body.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <%= form.label :name %>
+        <%= form.text_field :name, class: "form-control" %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <% @garment_attributes_hash.each do |key, values| %>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <%= form.label key, GarmentAttribute.translated_kind(key) %>
+          <%= form.select "attributes", options_for_select(values.map{|s|[s.name, s.id]}, @body.all_attributes.ids), {}, { multiple: true, class: "form-control"} %>
+        </div>
+      </div>
+  <% end %>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="actions">
+        <%= form.submit %>
+      </div>
+    </div>
+  </div>
+<% end %>

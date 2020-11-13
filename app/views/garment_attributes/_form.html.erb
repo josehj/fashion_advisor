@@ -1,0 +1,38 @@
+<%= form_with(model: garment_attribute, local: true) do |form| %>
+  <% if garment_attribute.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(garment_attribute.errors.count, "error") %> prohibited this garment_attribute from being saved:</h2>
+
+      <ul>
+        <% garment_attribute.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="row">
+    <div class="col-xs-6">
+      <div class="form-group">
+        <%= form.label :name %>
+        <%= form.text_field :name, class: "form-control" %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-6">
+      <div class="form-group">
+        <%= form.label :kind %>
+        <%= form.select :kind, options_for_select(::GarmentAttribute.translated_kinds.map { |translation, k, _v| [translation, k] }), {}, { class: "form-control"} %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-6">
+      <div class="actions">
+        <%= form.submit %>
+      </div>
+    </div>
+  </div>
+
+
+<% end %>

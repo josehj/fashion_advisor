@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong><%= GarmentAttribute.human_attribute_name(:name) %>:</strong>
+  <%= @garment_attribute.name %>
+</p>
+
+<p>
+  <strong>Kind:</strong>
+  <%= @garment_attribute.translated_kind %>
+</p>
+
+<%= link_to 'Edit', edit_garment_attribute_path(@garment_attribute) %> |
+<%= link_to 'Back', garment_attributes_path %>

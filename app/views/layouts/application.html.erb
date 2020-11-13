@@ -7,9 +7,36 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+    <!-- Link Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"> 
+      
+    <!-- Link Bootstrap Js and Jquery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script> 
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script> 
 
+  </head>
   <body>
-    <%= yield %>
+    <div class="sidenav">
+      <a href="/">Inicio <%= fa_icon('home') %></a>
+
+      <a href="<%= fashion_styles_path %>">Estilos de moda</a>
+      <a href="<%= fashion_style_garments_path %>">Estilos por prenda</a>
+      <a href="<%= garment_attributes_path %>">Atributos prenda</a>
+      <a href="<%= bodies_path %>">Tipos de cuerpo</a>
+    </div>
+
+    <div class="mr-2 mt-2 main">
+      <div>
+        <%= yield %>
+      </div>
+
+      <br/>
+      <br/>
+      <%= link_to root_path do %>
+          Inicio <%= fa_icon('home') %>
+      <%end%>
+    </div>
+   
   </body>
-</html>
+</html> 

@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong><%= Body.human_attribute_name(:name) %>:</strong>
+  <%= @body.name %>
+</p>
+
+<% @body.all_attributes.group_by(&:kind).each do |key, values| %>
+  <p>
+    <strong>Atributos <%= GarmentAttribute.translated_kind(key) %>:</strong>
+    <ul>
+    <% values.each do |value| %>
+      <li><%= value.name %></li>
+    <%end%>
+    </ul>
+  </p>
+<%end%>
+
+<%= link_to 'Edit', edit_body_path(@body) %> |
+<%= link_to 'Back', bodies_path %>

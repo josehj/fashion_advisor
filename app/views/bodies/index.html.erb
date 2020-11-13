@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= Body.model_name.human %></h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Nombre</th>
+      <th scope="col" colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bodies.each do |body| %>
+      <tr>
+        <td><%= body.name %></td>
+        <td>
+          <%= link_to body, class: "icon-button mr-3", title: 'show' do %>
+            <%=fa_icon('eye')%>
+          <% end %>
+          <%= link_to edit_body_path(body), class: "icon-button mr-3", title: 'edit' do %>
+            <%=fa_icon('edit')%>
+          <% end %>
+          <%= link_to body, method: :delete, data: { confirm: 'Are you sure?' }, class: "icon-button", title: 'delete' do %>
+            <%=fa_icon('trash')%>
+          <% end %>
+        </td>
+      
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nuevo Estilo de moda', new_body_path %>

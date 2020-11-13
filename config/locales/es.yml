@@ -1,0 +1,47 @@
+es:
+  attributes:
+    name: Nombre
+    created_at: Fecha Creación
+    updated_at: Fecha Actualización
+    type: Tipo
+  activerecord:
+    models:
+      fashion_style:
+        one: Estilo de moda
+        other: Estilos de moda
+      fashion_style_garment:
+        one: Prenda por estilo de moda
+        other: Prendas por estilo de moda
+      garment_attribute:
+        one: Atributo de prenda
+        other: Atributos de prenda
+      body:
+        one: Tipo de cuerpo
+        other: Tipos de cuerpo
+    attributes:
+      fashion_style:
+        name: Nombre
+      fashion_style_garment:
+        category: Categoria
+        category_list:
+          tops: POLERAS Y BLUSAS
+          coats: CHAQUETAS Y ABRIGOS
+          full_body: VESTIDOS Y ENTERITOS
+          sweaters: SWEATERS, CHALECOS Y POLERONES
+          long_bottoms: JEANS Y PANTALONES
+          short_bottoms: SHORTS Y FALDAS
+      garment_attribute:
+        kind: Tipo
+        kind_list:
+          neck: Cuello
+          sleeve: Tipo Mangas
+          top_length: Largo Top
+          top_fit: Fit Top
+          fabrics: Tela
+          print: Print
+          bottom_length: Largo Bottom
+          bottom_fit: Fit Bottom
+          bottom_style: Estilo Bottom
+          garment_size: Talla
+          details: Detalles
+          color: Color

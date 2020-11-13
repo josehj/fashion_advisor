@@ -52,3 +52,9 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# font awesome gem for rails, icons.
+gem "font-awesome-rails"
+
+# traduccion de enums
+gem 'translate_enum', require: 'translate_enum/active_record'

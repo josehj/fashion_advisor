@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Fashion Style Garments</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Nombre</th>
+      <th scope="col">Categoria</th>
+      <th scope="col">Estilo</th>
+      <th scope="col" colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @fashion_style_garments.each do |fashion_style_garment| %>
+      <tr>
+        <td><%= fashion_style_garment.name %></td>
+        <td><%= fashion_style_garment.category %></td>
+        <td><%= fashion_style_garment.fashion_style_id %></td>
+        <td>
+          <%= link_to fashion_style_garment, class: "icon-button mr-3", title: 'show' do %>
+            <%=fa_icon('eye')%>
+          <% end %>
+          <%= link_to edit_fashion_style_garment_path(fashion_style_garment), class: "icon-button mr-3", title: 'edit' do %>
+            <%=fa_icon('edit')%>
+          <% end %>
+          <%= link_to fashion_style_garment, method: :delete, data: { confirm: 'Are you sure?' }, class: "icon-button", title: 'delete' do %>
+            <%=fa_icon('trash')%>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nueva Prenda por Estilo de moda', new_fashion_style_garment_path %>

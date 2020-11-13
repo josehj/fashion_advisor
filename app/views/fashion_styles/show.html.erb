@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong><%= FashionStyle.human_attribute_name(:name)  %>:</strong>
+  <%= @fashion_style.name %>
+</p>
+
+<%= link_to 'Edit', edit_fashion_style_path(@fashion_style) %> |
+<%= link_to 'Back', fashion_styles_path %>

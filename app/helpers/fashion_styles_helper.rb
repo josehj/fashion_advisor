@@ -1,0 +1,2 @@
+module FashionStylesHelper
+end

@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong><%= FashionStyleGarment.human_attribute_name(:name) %>:</strong>
+  <%= @fashion_style_garment.name %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @fashion_style_garment.category %>
+</p>
+
+<p>
+  <strong>Fashion style:</strong>
+  <%= @fashion_style_garment.fashion_style_id %>
+</p>
+
+
+<% @fashion_style_garment.all_attributes.group_by(&:kind).each do |key, values| %>
+  <p>
+    <strong>Atributos <%= GarmentAttribute.translated_kind(key) %>:</strong>
+    <ul>
+    <% values.each do |value| %>
+      <li><%= value.name %></li>
+    <%end%>
+    </ul>
+  </p>
+<%end%>
+
+
+<%= link_to 'Edit', edit_fashion_style_garment_path(@fashion_style_garment) %> |
+<%= link_to 'Back', fashion_style_garments_path %>

@@ -1,0 +1,2 @@
+module GarmentAttributesHelper
+end

@@ -1,0 +1,55 @@
+<%= form_with(model: fashion_style_garment, local: true) do |form| %>
+  <% if fashion_style_garment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(fashion_style_garment.errors.count, "error") %> prohibited this fashion_style_garment from being saved:</h2>
+
+      <ul>
+        <% fashion_style_garment.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <%= form.label :name %>
+        <%= form.text_field :name, class: "form-control" %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <%= form.label :category %>
+        <%= form.select :category, options_for_select(FashionStyleGarment.translated_categories.map { |translation, k, _v| [translation, k] }), {}, { class: "form-control"} %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <%= form.label :fashion_style_id %>
+        <%= form.select :fashion_style_id, options_for_select(FashionStyle.all.map{|s|[s.name, s.id]}), {}, { class: "form-control"} %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <% @garment_attributes_hash.each do |key, values| %>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <%= form.label key, GarmentAttribute.translated_kind(key) %>
+          <%= form.select "attributes", options_for_select(values.map{|s|[s.name, s.id]}, @fashion_style_garment.all_attributes.ids), {}, { multiple: true, class: "form-control"} %>
+        </div>
+      </div>
+  <% end %>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="actions">
+        <%= form.submit %>
+      </div>
+    </div>
+  </div>
+<% end %>

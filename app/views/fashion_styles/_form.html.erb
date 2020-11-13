@@ -1,0 +1,29 @@
+<%= form_with(model: fashion_style, local: true) do |form| %>
+  <% if fashion_style.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(fashion_style.errors.count, "error") %> prohibited this fashion_style from being saved:</h2>
+
+      <ul>
+        <% fashion_style.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <%= form.label :name %>
+        <%= form.text_field :name, class: "form-control" %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="actions">
+        <%= form.submit %>
+      </div>
+    </div>
+  </div>
+<% end %>
