@@ -1,43 +1,45 @@
 <%= form_for :search, url: welcome_search_path do |form| %>
-  <div class="row">
-    <div class="col-sm-2">
-      <div class="form-group">
-        <%= form.label :garment_type_id, GarmentType.model_name.human %>
-        <%= form.select :garment_type_id, options_for_select(GarmentType.all.map{|s|[s.name, s.id]}), { :include_blank => true}, { class: "form-control"} %>
+  <div style="max-width: 600px;">
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="form-group">
+          <%= form.label :garment_type_id, GarmentType.model_name.human %>
+          <%= form.select :garment_type_id, options_for_select(GarmentType.all.map{|s|[s.name, s.id]}), { :include_blank => true}, { class: "form-control"} %>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <%= form.label :fashion_style_id, FashionStyle.model_name.human %>
+          <%= form.select :fashion_style_id, options_for_select(FashionStyle.all.map{|s|[s.name, s.id]}), { :include_blank => true}, { class: "form-control"} %>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <%= form.label :body, Body.model_name.human %>
+          <%= form.select :body, options_for_select(Body.all.map{|s|[s.name, s.id]}), { :include_blank => true}, { class: "form-control"} %>
+        </div>
       </div>
     </div>
-    <div class="col-sm-2">
-      <div class="form-group">
-        <%= form.label :fashion_style_id, FashionStyle.model_name.human %>
-        <%= form.select :fashion_style_id, options_for_select(FashionStyle.all.map{|s|[s.name, s.id]}), { :include_blank => true}, { class: "form-control"} %>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="form-group">
+          <%= form.label :color %>
+          <%= form.select :color, options_for_select(GarmentAttribute.color.map{|s|[s.name, s.id]}), { :include_blank => true}, { class: "form-control"} %>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <%= form.label :size, "Talla"%>
+          <%= form.select :size, options_for_select(GarmentAttribute.select{|g| g.bottom_size? || g.top_size? }.map{|s|[s.name, s.id]}), { :include_blank => true}, { class: "form-control"} %>
+        </div>
       </div>
     </div>
-    <div class="col-sm-2">
-      <div class="form-group">
-        <%= form.label :body, Body.model_name.human %>
-        <%= form.select :body, options_for_select(Body.all.map{|s|[s.name, s.id]}), { :include_blank => true}, { class: "form-control"} %>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-2">
-      <div class="form-group">
-        <%= form.label :color %>
-        <%= form.select :color, options_for_select(GarmentAttribute.color.map{|s|[s.name, s.id]}), { :include_blank => true}, { class: "form-control"} %>
-      </div>
-    </div>
-    <div class="col-sm-2">
-      <div class="form-group">
-        <%= form.label :size, "Talla"%>
-        <%= form.select :size, options_for_select(GarmentAttribute.select{|g| g.bottom_size? || g.top_size? }.map{|s|[s.name, s.id]}), { :include_blank => true}, { class: "form-control"} %>
-      </div>
-    </div>
-  </div>
 
-  <div class="row">
-    <div class="col-sm-6">
-      <div class="actions">
-        <%= form.submit "Buscar" %>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="actions">
+          <%= form.submit "Buscar" %>
+        </div>
       </div>
     </div>
   </div>

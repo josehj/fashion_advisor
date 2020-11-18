@@ -6,17 +6,18 @@
   <strong><%= Body.human_attribute_name(:name) %>:</strong>
   <%= @body.name %>
 </p>
-
-<% @body.all_attributes.group_by(&:kind).each do |key, values| %>
-  <p>
-    <strong>Atributos <%= GarmentAttribute.translated_kind(key) %>:</strong>
-    <ul>
-    <% values.each do |value| %>
-      <li><%= value.name %></li>
-    <%end%>
-    </ul>
-  </p>
-<%end%>
+<div class="row">
+  <% @body.all_attributes.group_by(&:kind).each do |key, values| %>
+    <div class="col-sm-4">
+      <strong>Atributos <%= GarmentAttribute.translated_kind(key) %>:</strong>
+      <ul>
+      <% values.each do |value| %>
+        <li><%= value.name %></li>
+      <%end%>
+      </ul>
+    </div>
+  <%end%>
+</div>
 
 <%= link_to 'Edit', edit_body_path(@body) %> |
 <%= link_to 'Back', bodies_path %>

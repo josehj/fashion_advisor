@@ -88,5 +88,8 @@ a:hover {
 // /////////////////////
 
 .garment-attribute-select {
-  height: 240px !important;
+  height: 240 !important;
+  @media only screen and (max-device-width : 640px) {
+      height: auto !important;
+    }    
 }
