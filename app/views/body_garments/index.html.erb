@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Atributo por Cuerpos</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Tipo de cuerpo</th>
+      <th scope="col">Categoria</th>
+      <th scope="col">Estilo</th>
+      <th scope="col" colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @body_garments.each do |body_garment| %>
+      <tr>
+        <td><%= body_garment.garment_type.name %></td>
+        <td><%= body_garment.garment_type.translated_category %></td>
+        <td><%= body_garment.body.name %></td>
+        <td>
+          <%= link_to body_garment, class: "icon-button mr-3", title: 'show' do %>
+            <%=fa_icon('eye')%>
+          <% end %>
+          <%= link_to edit_body_garment_path(body_garment), class: "icon-button mr-3", title: 'edit' do %>
+            <%=fa_icon('edit')%>
+          <% end %>
+          <%= link_to body_garment, method: :delete, data: { confirm: 'Are you sure?' }, class: "icon-button", title: 'delete' do %>
+            <%=fa_icon('trash')%>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nuevo Atributo por Cuerpo', new_body_garment_path %>

@@ -58,3 +58,5 @@ gem "font-awesome-rails"
 
 # traduccion de enums
 gem 'translate_enum', require: 'translate_enum/active_record'
+
+gem 'jquery-rails'

@@ -27,6 +27,20 @@
       </div>
     </div>
   </div>
+  <h3>Elige que atributos puede tener esta prenda (aparecen todos los atributos)</h3>
+
+  <div class="row">
+    <% @garment_attributes_hash.each do |key, values| %>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <%= label_tag key, GarmentAttribute.translated_kind(key) %>
+          <%= select :garment_type, 'attributes', options_for_select(values.map{|s|[s.name, s.id]}, @garment_type.all_attributes.ids),
+                     {}, multiple: true, id: "select-#{key}", class: "form-control garment-attribute-select"
+          %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 
   <div class="row">
     <div class="col-sm-6">

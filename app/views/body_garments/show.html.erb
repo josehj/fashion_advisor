@@ -1,18 +1,17 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @garment_type.name %>
+  <strong>Body:</strong>
+  <%= @body_garment.body.name %>
 </p>
 
 <p>
-  <strong>Category:</strong>
-  <%= @garment_type.translated_category %>
+  <strong>Garment type:</strong>
+  <%= @body_garment.garment_type.name %>
 </p>
 
-
 <div class="row">
-  <% @garment_type.all_attributes.group_by(&:kind).each do |key, values| %>
+  <% @body_garment.all_attributes.group_by(&:kind).each do |key, values| %>
     <div class="col-sm-4">
       <strong>Atributos <%= GarmentAttribute.translated_kind(key) %>:</strong>
       <ul>
@@ -24,6 +23,5 @@
   <%end%>
 </div>
 
-
-<%= link_to 'Edit', edit_garment_type_path(@garment_type) %> |
-<%= link_to 'Back', garment_types_path %>
+<%= link_to 'Edit', edit_body_garment_path(@body_garment) %> |
+<%= link_to 'Back', body_garments_path %>

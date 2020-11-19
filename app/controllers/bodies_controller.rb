@@ -15,12 +15,10 @@ class BodiesController < ApplicationController
   # GET /bodies/new
   def new
     @body = Body.new
-    @garment_attributes_hash = GarmentAttribute.all.group_by(&:kind) || []
   end
 
   # GET /bodies/1/edit
   def edit
-    @garment_attributes_hash = GarmentAttribute.all.group_by(&:kind) || []
   end
 
   # POST /bodies
@@ -30,7 +28,6 @@ class BodiesController < ApplicationController
 
     respond_to do |format|
       if @body.save
-        set_garment_attributes
         format.html { redirect_to @body, notice: 'Body was successfully created.' }
         format.json { render :show, status: :created, location: @body }
       else
@@ -45,7 +42,6 @@ class BodiesController < ApplicationController
   def update
     respond_to do |format|
       if @body.update(body_params)
-        set_garment_attributes
         format.html { redirect_to @body, notice: 'Body was successfully updated.' }
         format.json { render :show, status: :ok, location: @body }
       else
@@ -69,18 +65,6 @@ class BodiesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_body
       @body = Body.find(params[:id])
-    end
-
-    def set_garment_attributes
-      @body.all_attributes.destroy_all
-      attribute_params[:attributes].each do |garment_attribute_id|
-        BodyGarmentAttribute.create(garment_attribute_id: garment_attribute_id, body_id: @body.id)
-      end
-    end
-
-    # Only allow a list of trusted parameters through.
-    def attribute_params
-      params.require(:body).permit!
     end
 
     # Only allow a list of trusted parameters through.

@@ -15,7 +15,9 @@ class GarmentType < ApplicationRecord
   validates :name, presence: true
 
   has_many :fashion_style_garment, dependent: :destroy
-
+  has_many :garment_type_permitted_attributes, dependent: :destroy
+  has_many :all_attributes, through: :garment_type_permitted_attributes, source: :garment_attribute
+  
   enum category: {
     tops: 1,
     coats: 2,

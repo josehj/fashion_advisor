@@ -14,13 +14,13 @@ class FashionStyleGarmentsController < ApplicationController
 
   # GET /fashion_style_garments/new
   def new
-    @garment_attributes_hash = GarmentAttribute.all.group_by(&:kind) || []
+    @garment_attributes_hash = GarmentAttribute.for_garments.group_by(&:kind) || []
     @fashion_style_garment = FashionStyleGarment.new
   end
 
   # GET /fashion_style_garments/1/edit
   def edit
-    @garment_attributes_hash = GarmentAttribute.all.group_by(&:kind) || []
+    @garment_attributes_hash = GarmentAttribute.for_garments.group_by(&:kind) || []
   end
 
   # POST /fashion_style_garments

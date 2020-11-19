@@ -18,7 +18,11 @@
 
 <p>
   <strong>Color</strong>
-  <%= @color&.name || "no encontrado" %>
+  <ul>
+    <% @colors.each do |color| %>
+      <li><%= color.name %></li>
+    <%end%>
+  </ul>
 </p>
 <p>
   <strong>Talla</strong>

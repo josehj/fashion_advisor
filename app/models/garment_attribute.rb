@@ -18,11 +18,14 @@ class GarmentAttribute < ApplicationRecord
     sleeve: 2,
     top_length: 3,
     top_fit: 4,
+    top_dress_fit: 16,
     fabrics: 5,
     prints: 6,
-    bottom_length: 7,
-    bottom_fit: 8,
-    bottom_style: 9,
+    bottom_length_jeans: 7,
+    bottom_length_dress: 15,
+    bottom_short_fit: 14,
+    bottom_style: 8,
+    jeans_fit: 9,
     top_size: 10,
     bottom_size: 11,
     details: 12,
@@ -43,4 +46,6 @@ class GarmentAttribute < ApplicationRecord
   scope :bottom_size, -> { where(kind: :bottom_size) }
   scope :details, -> { where(kind: :details) }
   scope :color, -> { where(kind: :color) }
+
+  scope :for_garments, -> { where.not(kind: [:color, :top_size, :bottom_size]) }
 end

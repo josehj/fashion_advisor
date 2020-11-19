@@ -10,8 +10,8 @@ es:
         one: Estilo de moda
         other: Estilos de moda
       fashion_style_garment:
-        one: Prenda por estilo de moda
-        other: Prendas por estilo de moda
+        one: Atributo por Estilo
+        other: Atributos por Estilo
       garment_attribute:
         one: Atributo de prenda
         other: Atributos de prenda
@@ -21,11 +21,15 @@ es:
       body:
         one: Tipo de cuerpo
         other: Tipos de cuerpo
+      body_garment:
+        one: Atributo por Cuerpo
+        other: Atributos por Cuerpo
     attributes:
       fashion_style:
         name: Nombre
       fashion_style_garment:
-        name: Nombre
+        fashion_style: Estilo de moda
+        garment_type: Tipo de prenda
       garment_type:
         category: Categoria
         category_list:
@@ -35,19 +39,25 @@ es:
           sweaters: SWEATERS, CHALECOS Y POLERONES
           long_bottoms: JEANS Y PANTALONES
           short_bottoms: SHORTS Y FALDAS
+      body_garment:
+        body: Cuerpo
+        garment_type: Tipo de prenda
       garment_attribute:
         kind: Tipo
         kind_list:
-          neck: Cuello
-          sleeve: Tipo Mangas
-          top_length: Largo Top
-          top_fit: Fit Top
-          fabrics: Tela
-          prints: Print
-          bottom_length: Largo Bottom
-          bottom_fit: Tiro Botrom
-          bottom_style: Estilo Bottom
-          bottom_size: Talla Pantalon
-          top_size: Talla Polera
-          details: Detalles
-          color: Color
+          neck: POR CUELLO
+          sleeve: POR TIPO MANGA
+          top_length: POR LARGO (TOP)
+          top_fit: POR FIT CUERPO (TOP)
+          top_dress_fit: POR FIT CUERPO (VESTIDO)
+          fabrics: TELA PRINCIPAL
+          prints: PRINT
+          bottom_length_jeans: POR LARGO (PANTALON)
+          bottom_length_dress: POR LARGO (VESTIDO/ENTERITO/FALDA)
+          bottom_short_fit: POR LARGO (SHORT)
+          bottom_style: POR TIRO
+          jeans_fit: POR FIT PANTALON
+          top_size: TALLA TOP
+          bottom_size: TALLA BOTTOM
+          details: DETALLES
+          color: COLOR

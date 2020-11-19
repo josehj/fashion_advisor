@@ -14,12 +14,6 @@ FashionStyle.create([
                       { name: 'Rock' }
                     ])
 
-# tops: 1,
-# coats: 2,
-# full_body: 3,
-# sweaters: 4,
-# long_bottoms: 5,
-# short_bottoms: 6
 GarmentType.create([
                      { name: 'BLUSAS', category: 1 },
                      { name: 'POLERAS', category: 1 },
@@ -50,20 +44,8 @@ Body.create([
               { name: 'Rombo' }
             ])
 
-# neck: 1,
-# sleeve: 2,
-# top_length: 3,
-# top_fit: 4,
-# fabrics: 5,
-# prints: 6,
-# bottom_length: 7,
-# bottom_fit: 8,
-# bottom_style: 9,
-# top_size: 10,
-# bottom_size: 11,
-# details: 12,
-# color: 13,
 GarmentAttribute.create([
+                          # neck: 1, POR CUELLO
                           { name: 'CUELLO V', kind: 1 },
                           { name: 'CUELLO REDONDO', kind: 1 },
                           { name: 'STRAPLESS', kind: 1 },
@@ -76,6 +58,7 @@ GarmentAttribute.create([
                           { name: 'CUELLO SUBIDO (BEATLE)', kind: 1 },
                           { name: 'OTRO', kind: 1 },
 
+                          # sleeve: 2,POR TIPO MANGA
                           { name: 'MANGA LARGA - CLASICA', kind: 2 },
                           { name: 'MANGA LARGA - FLARE', kind: 2 },
                           { name: 'MANGA CORTA -GLOBO', kind: 2 },
@@ -84,46 +67,56 @@ GarmentAttribute.create([
                           { name: 'MANGA CORTA - CLASICA', kind: 2 },
                           { name: 'UNA MANGA', kind: 2 },
                           { name: 'SIN MANGA', kind: 2 },
+                          { name: 'STRAPLESS', kind: 2 },
+                          { name: 'MANGA 3/4', kind: 2 },
                           { name: 'TIRITAS', kind: 2 },
                           { name: 'OFF SHOULDER ', kind: 2 },
                           { name: 'COLD SHOULDER', kind: 2 },
 
+                          # top_length: 3, POR LARGO (TOP)
                           { name: 'CROP', kind: 3 },
                           { name: 'NORMAL', kind: 3 },
                           { name: 'LARGO', kind: 3 },
                           { name: 'MEDIO', kind: 3 },
                           { name: 'TOBILLO', kind: 3 },
-
+                          
+                          # top_fit: 4, POR FIT CUERPO (TOP)
                           { name: 'APRETADO', kind: 4 },
                           { name: 'SUELTO', kind: 4 },
                           { name: 'NORMAL', kind: 4 },
                           { name: 'OVERSIZE', kind: 4 },
                           { name: 'PEPLUM', kind: 4 },
-                          { name: 'FORMA A', kind: 4 },
-                          { name: 'BARDOT', kind: 4 },
-                          { name: 'BLAZER', kind: 4 },
-                          { name: 'BODYCON (AJUSTADO)', kind: 4 },
-                          { name: 'CUT OUT', kind: 4 },
-                          { name: 'SIRENA', kind: 4 },
-                          { name: 'PENCIL (TUBO, SHEATH)', kind: 4 },
-                          { name: 'POLERA', kind: 4 },
-                          { name: 'SKATER', kind: 4 },
-                          { name: 'SLIP', kind: 4 },
-                          { name: 'SMOCK', kind: 4 },
-                          { name: 'WRAP', kind: 4 },
-                          { name: 'FIT & FLARE (AJUSTADO Y ACAMPANADO)', kind: 4 },
-                          { name: 'CINTURA CAIDA (AÑOS 20)', kind: 4 },
-                          { name: 'CORTE IMPERIO (ABAJO PECHUGA)', kind: 4 },
-                          { name: 'SHIFT', kind: 4 },
 
+                          # top_dress_fit: 16, POR FIT CUERPO (VESTIDO)
+                          { name: 'FORMA A', kind: 16 },
+                          { name: 'BARDOT', kind: 16 },
+                          { name: 'BLAZER', kind: 16 },
+                          { name: 'BODYCON (AJUSTADO)', kind: 16 },
+                          { name: 'CUT OUT', kind: 16 },
+                          { name: 'SIRENA', kind: 16 },
+                          { name: 'PENCIL (TUBO, SHEATH)', kind: 16 },
+                          { name: 'POLERA', kind: 16 },
+                          { name: 'SKATER', kind: 16 },
+                          { name: 'SLIP', kind: 16 },
+                          { name: 'SMOCK', kind: 16 },
+                          { name: 'WRAP', kind: 16 },
+                          { name: 'FIT & FLARE (AJUSTADO Y ACAMPANADO)', kind: 16 },
+                          { name: 'CINTURA CAIDA (AÑOS 20)', kind: 16 },
+                          { name: 'CORTE IMPERIO (ABAJO PECHUGA)', kind: 16 },
+                          { name: 'SHIFT', kind: 16 },
+
+                          # fabrics: 5, TELA PRINCIPAL
                           { name: 'BLUE JEAN', kind: 5 },
                           { name: 'TENCEL', kind: 5 },
                           { name: 'TERCIOPELO', kind: 5 },
                           { name: 'PLUSH', kind: 5 },
                           { name: 'LINO', kind: 5 },
                           { name: 'GAMUZA', kind: 5 },
+                          { name: 'PLUMETI', kind: 5 },
+                          { name: 'JACQUARD', kind: 5 },
                           { name: 'ALGODON', kind: 5 },
                           { name: 'GABARDINA', kind: 5 },
+                          { name: 'POLIESTER', kind: 5 },
                           { name: 'FRANELA', kind: 5 },
                           { name: 'CREPE', kind: 5 },
                           { name: 'ENCAJE', kind: 5 },
@@ -144,6 +137,7 @@ GarmentAttribute.create([
                           { name: 'HILO', kind: 5 },
                           { name: 'OTRA', kind: 5 },
 
+                          # prints: 6, PRINT
                           { name: 'FLORES', kind: 6 },
                           { name: 'TIE DYE', kind: 6 },
                           { name: 'PAISLEY', kind: 6 },
@@ -151,27 +145,36 @@ GarmentAttribute.create([
                           { name: 'GINHAM', kind: 6 },
                           { name: 'PRINCIPE DE GALES', kind: 6 },
                           { name: 'CAMUFLADO', kind: 6 },
+                          { name: 'LOGO/FRASE', kind: 6 },
+                          { name: 'CHEVRON (ZIGZAG)', kind: 6 },
                           { name: 'RAYAS', kind: 6 },
                           { name: 'PUNTOS', kind: 6 },
                           { name: 'TROPICAL', kind: 6 },
                           { name: 'LISO', kind: 6 },
                           { name: 'OTRO', kind: 6 },
 
+                          # bottom_length_jeans: 7, POR LARGO (PANTALON)
+                          { name: 'REGULAR', kind: 7 },
                           { name: 'CULOTTE (PANTORILLA)', kind: 7 },
                           { name: 'CROP (TOBILLO)', kind: 7 },
-                          { name: 'REGULAR', kind: 7 },
-                          { name: 'MINI', kind: 7 },
-                          { name: 'MIDI', kind: 7 },
-                          { name: 'MAXI', kind: 7 },
-                          { name: 'DESIGUAL ', kind: 7 },
-                          { name: 'CORTO', kind: 7 },
-                          { name: 'NORMAL', kind: 7 },
-                          { name: 'BERMUDA', kind: 7 },
 
+                          # bottom_length_dress: 15, POR LARGO (VESTIDO/ENTERITO/FALDA)
+                          { name: 'MINI', kind: 15 },
+                          { name: 'MIDI', kind: 15 },
+                          { name: 'MAXI', kind: 15 },
+                          { name: 'DESIGUAL ', kind: 15 },
+
+                          # bottom_short_fit: 14, POR LARGO (SHORT)
+                          { name: 'NORMAL', kind: 14 },
+                          { name: 'CORTO', kind: 14 },
+                          { name: 'BERMUDA', kind: 14 },
+                          
+                          # bottom_style: 8, POR TIRO
                           { name: 'ALTO (HIGH RISE)', kind: 8 },
                           { name: 'NORMAL (A LA CINTURA)', kind: 8 },
                           { name: 'LOW RISE (CORTE BAJO)', kind: 8 },
 
+                          # jeans_fit: 9,POR FIT PANTALON
                           { name: 'FLARE', kind: 9 },
                           { name: 'RECTO', kind: 9 },
                           { name: 'PITILLO (SKINNY)', kind: 9 },
@@ -183,6 +186,7 @@ GarmentAttribute.create([
                           { name: 'PLISADO', kind: 9 },
                           { name: 'OTRO', kind: 9 },
 
+                          # top_size: 10, TALLA TOP
                           { name: 'XS', kind: 10 },
                           { name: 'S', kind: 10 },
                           { name: 'M', kind: 10 },
@@ -190,6 +194,7 @@ GarmentAttribute.create([
                           { name: 'XL', kind: 10 },
                           { name: 'XXL', kind: 10 },
 
+                          # bottom_size: 11, TALLA BOTTOM
                           { name: '32', kind: 11 },
                           { name: '34', kind: 11 },
                           { name: '36', kind: 11 },
@@ -199,6 +204,7 @@ GarmentAttribute.create([
                           { name: '44', kind: 11 },
                           { name: '46', kind: 11 },
 
+                          # details: 12, DETALLES
                           { name: 'ENCAJE', kind: 12 },
                           { name: 'TULL', kind: 12 },
                           { name: 'FLECOS', kind: 12 },
@@ -219,6 +225,7 @@ GarmentAttribute.create([
                           { name: 'OTRO', kind: 12 },
                           { name: 'NINGUNO', kind: 12 },
 
+                          # color: 13, COLOR
                           { name: 'BEIGE', kind: 13 },
                           { name: 'NEGRO', kind: 13 },
                           { name: 'AZUL', kind: 13 },

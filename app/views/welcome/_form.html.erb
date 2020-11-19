@@ -24,7 +24,7 @@
       <div class="col-sm-4">
         <div class="form-group">
           <%= form.label :color %>
-          <%= form.select :color, options_for_select(GarmentAttribute.color.map{|s|[s.name, s.id]}), { :include_blank => true}, { class: "form-control"} %>
+          <%= form.select :color, options_for_select(GarmentAttribute.color.map{|s|[s.name, s.id]}), {}, { id: "search-colors", multiple: true, class: "garment-attribute-select form-control"} %>
         </div>
       </div>
       <div class="col-sm-4">

@@ -1,0 +1,12 @@
+<% @garment_attributes_hash.each do |key, values| %>
+  <div class="col-sm-4">
+    <div class="form-group">
+      <%= label_tag key, GarmentAttribute.translated_kind(key) %>
+      <%= select @name, 'attributes', options_for_select(values.map{|s|[s.name, s.id]}),
+                  {}, multiple: true, id: "select-#{key}", class: "form-control garment-attribute-select"
+      %>
+    </div>
+  </div>
+<% end %>
+<div id="dddd">
+</div>

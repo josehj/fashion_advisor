@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_13_012628) do
+ActiveRecord::Schema.define(version: 2020_11_19_151748) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,10 +22,19 @@ ActiveRecord::Schema.define(version: 2020_11_13_012628) do
   end
 
   create_table "body_garment_attributes", force: :cascade do |t|
-    t.bigint "body_id", null: false
     t.bigint "garment_attribute_id", null: false
-    t.index ["body_id"], name: "index_body_garment_attributes_on_body_id"
+    t.bigint "body_garment_id"
+    t.index ["body_garment_id"], name: "index_body_garment_attributes_on_body_garment_id"
     t.index ["garment_attribute_id"], name: "index_body_garment_attributes_on_garment_attribute_id"
+  end
+
+  create_table "body_garments", force: :cascade do |t|
+    t.bigint "body_id", null: false
+    t.bigint "garment_type_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["body_id"], name: "index_body_garments_on_body_id"
+    t.index ["garment_type_id"], name: "index_body_garments_on_garment_type_id"
   end
 
   create_table "fashion_garment_attributes", force: :cascade do |t|
@@ -58,6 +67,13 @@ ActiveRecord::Schema.define(version: 2020_11_13_012628) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "garment_type_permitted_attributes", force: :cascade do |t|
+    t.bigint "garment_type_id", null: false
+    t.bigint "garment_attribute_id", null: false
+    t.index ["garment_attribute_id"], name: "index_garment_type_permitted_attributes_on_garment_attribute_id"
+    t.index ["garment_type_id"], name: "index_garment_type_permitted_attributes_on_garment_type_id"
+  end
+
   create_table "garment_types", force: :cascade do |t|
     t.string "name"
     t.integer "category"
@@ -65,9 +81,12 @@ ActiveRecord::Schema.define(version: 2020_11_13_012628) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "body_garment_attributes", "bodies"
   add_foreign_key "body_garment_attributes", "garment_attributes"
+  add_foreign_key "body_garments", "bodies"
+  add_foreign_key "body_garments", "garment_types"
   add_foreign_key "fashion_garment_attributes", "fashion_style_garments"
   add_foreign_key "fashion_garment_attributes", "garment_attributes"
   add_foreign_key "fashion_style_garments", "fashion_styles"
+  add_foreign_key "garment_type_permitted_attributes", "garment_attributes"
+  add_foreign_key "garment_type_permitted_attributes", "garment_types"
 end

@@ -87,9 +87,35 @@ a:hover {
 
 // /////////////////////
 
-.garment-attribute-select {
-  height: 240 !important;
-  @media only screen and (max-device-width : 640px) {
-      height: auto !important;
-    }    
+.multiselect-wrapper {
+  width: auto;
+  display: block;
+  .multiselect-input {
+    border-radius: .25rem;
+    width: 100%;
+    height: calc(2.25rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    margin: auto
+  }
+  ul li.active {
+    background-color: $color-secondary;
+    padding-top: 3px;
+    padding-left: 3px;
+  }
+  
+  ul li:hover {
+    background-color: $color-primary;
+  }
+  .multiselect-text {
+    margin-left: 2px;
+  }
 }
