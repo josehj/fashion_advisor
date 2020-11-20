@@ -13,8 +13,9 @@ class WelcomeController < ApplicationController
   end
 
   def accepted_attributes
-    if params[:fashion_style_garment]
-      garment_type = GarmentType.find(params[:fashion_style_garment][:garment_type_id])
+    ic_params = params[:fashion_style_garment] || params[:body_garment]
+    if ic_params
+      garment_type = GarmentType.find(ic_params[:garment_type_id])
       @garment_attributes_hash = garment_type.all_attributes.group_by(&:kind) || []
     else
       @garment_attributes_hash = GarmentAttribute.for_garments.group_by(&:kind) || []

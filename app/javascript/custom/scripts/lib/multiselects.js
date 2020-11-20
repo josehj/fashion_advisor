@@ -20,6 +20,6 @@ $(document).on('change','[ic-target]',function(){
       $(this).multiselect()
       multiselects.push(this)
     });
-  }, 300);
+  }, 1100);
   
 });
