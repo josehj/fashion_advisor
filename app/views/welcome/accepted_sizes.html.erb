@@ -1,0 +1,4 @@
+<div class="form-group">
+  <%= label_tag  :size, "Talla" %>
+  <%= select :search, :size, options_for_select(@sizes.map{|s|[s.name, s.id]}), { :include_blank => true}, { class: "form-control"} %>
+</div>

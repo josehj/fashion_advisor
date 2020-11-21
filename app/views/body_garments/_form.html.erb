@@ -16,11 +16,8 @@
     <div class="col-sm-6">
       <div class="form-group">
         <%= form.label :garment_type_id %>
-        <%= form.select :garment_type_id, options_for_select(GarmentType.all.map{|s|[s.name, s.id]}), {include_blank: true}, { class: "form-control",
-                        'ic-get-from': welcome_accepted_attributes_path(form_name: 'body_garment'),
-                        'ic-target': '#hola-soy-ic',
-                        'ic-trigger-on': 'change'
-                        } %>
+        <%= form.select :garment_type_id, options_for_select(GarmentType.all.map{|s|[s.name, s.id]}, form.object.garment_type_id), {include_blank: true},
+                        { class: "form-control", data: {'form-name': 'body_garment'}} %>
       </div>
     </div>
   </div>

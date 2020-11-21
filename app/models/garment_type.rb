@@ -27,4 +27,12 @@ class GarmentType < ApplicationRecord
     short_bottoms: 6
   }
   translate_enum :category
+
+  def is_bottom?
+    long_bottoms? || short_bottoms?
+  end
+
+  def is_top?
+    tops? || coats? || full_body? || sweaters?
+  end
 end

@@ -12,7 +12,7 @@ class FashionStyleGarmentsTest < ApplicationSystemTestCase
 
   test "creating a Fashion style garment" do
     visit fashion_style_garments_url
-    click_on "Nueva Prenda por Estilo de moda"
+    click_on "Nueva Atributos por Estilo"
 
     fill_in "Fashion style", with: @fashion_style_garment.fashion_style_id
     fill_in "Garment type", with: @fashion_style_garment.garment_type_id

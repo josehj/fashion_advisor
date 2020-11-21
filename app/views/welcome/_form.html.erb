@@ -4,7 +4,7 @@
       <div class="col-sm-4">
         <div class="form-group">
           <%= form.label :garment_type_id, GarmentType.model_name.human %>
-          <%= form.select :garment_type_id, options_for_select(GarmentType.all.map{|s|[s.name, s.id]}), { :include_blank => true}, { class: "form-control"} %>
+          <%= form.select :garment_type_id, options_for_select(GarmentType.all.map{|s|[s.name, s.id]}), { :include_blank => true}, { class: "form-control", data: {'home-search': true}} %>
         </div>
       </div>
       <div class="col-sm-4">
@@ -27,7 +27,7 @@
           <%= form.select :color, options_for_select(GarmentAttribute.color.map{|s|[s.name, s.id]}), {}, { id: "search-colors", multiple: true, class: "garment-attribute-select form-control"} %>
         </div>
       </div>
-      <div class="col-sm-4">
+      <div class="col-sm-4" id="search-size">
         <div class="form-group">
           <%= form.label :size, "Talla"%>
           <%= form.select :size, options_for_select(GarmentAttribute.select{|g| g.bottom_size? || g.top_size? }.map{|s|[s.name, s.id]}), { :include_blank => true}, { class: "form-control"} %>

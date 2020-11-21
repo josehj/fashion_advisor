@@ -20,7 +20,7 @@ class BodyGarmentsController < ApplicationController
 
   # GET /body_garments/1/edit
   def edit
-    @garment_attributes_hash = GarmentAttribute.for_garments.group_by(&:kind) || []
+    @garment_attributes_hash = @body_garment&.garment_type&.all_attributes.group_by(&:kind) || GarmentAttribute.for_garments.group_by(&:kind)
   end
 
   # POST /body_garments
@@ -34,7 +34,7 @@ class BodyGarmentsController < ApplicationController
         format.html { redirect_to @body_garment, notice: 'Atributo por Cuerpo was successfully created.' }
         format.json { render :show, status: :created, location: @body_garment }
       else
-        @garment_attributes_hash = GarmentAttribute.for_garments.group_by(&:kind) || []
+        @garment_attributes_hash = @body_garment&.garment_type&.all_attributes.group_by(&:kind) || GarmentAttribute.for_garments.group_by(&:kind)
         format.html { render :new }
         format.json { render json: @body_garment.errors, status: :unprocessable_entity }
       end
@@ -50,7 +50,7 @@ class BodyGarmentsController < ApplicationController
         format.html { redirect_to @body_garment, notice: 'Atributo por Cuerpo was successfully updated.' }
         format.json { render :show, status: :ok, location: @body_garment }
       else
-        @garment_attributes_hash = GarmentAttribute.for_garments.group_by(&:kind) || []
+        @garment_attributes_hash = @fashion_style_garment&.garment_type&.all_attributes.group_by(&:kind) || GarmentAttribute.for_garments.group_by(&:kind)
         format.html { render :edit }
         format.json { render json: @body_garment.errors, status: :unprocessable_entity }
       end

@@ -1,7 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Fashion Style Garments</h1>
+<h1>Atributos por Estilo</h1>
 
+<div class="row my-4">
+  <div class="col-md-4">
+    <input id="filter-objects" type="text" placeholder="Buscar..." class="form-control">
+  </div>
+</div>
 <table class="table">
   <thead>
     <tr>
@@ -14,7 +19,7 @@
 
   <tbody>
     <% @fashion_style_garments.each do |fashion_style_garment| %>
-      <tr>
+      <tr class="to-filter" data-text="<%= fashion_style_garment.garment_type.name %> <%= fashion_style_garment.fashion_style.name %>">
         <td><%= fashion_style_garment.garment_type.name %></td>
         <td><%= fashion_style_garment.garment_type.translated_category %></td>
         <td><%= fashion_style_garment.fashion_style.name %></td>
@@ -36,4 +41,4 @@
 
 <br>
 
-<%= link_to 'Nueva Prenda por Estilo de moda', new_fashion_style_garment_path %>
+<%= link_to 'Nueva Atributos por Estilo', new_fashion_style_garment_path %>

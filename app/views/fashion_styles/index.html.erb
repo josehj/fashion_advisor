@@ -2,6 +2,11 @@
 
 <h1><%= FashionStyle.model_name.human %></h1>
 
+<div class="row my-4">
+  <div class="col-md-4">
+    <input id="filter-objects" type="text" placeholder="Buscar..." class="form-control">
+  </div>
+</div>
 <table class="table">
   <thead>
     <tr>
@@ -12,7 +17,7 @@
 
   <tbody>
     <% @fashion_styles.each do |fashion_style| %>
-      <tr>
+      <tr class="to-filter" data-text="<%= fashion_style.name %>">
         <td><%= fashion_style.name %></td>
         <td>
           <%= link_to fashion_style, class: "icon-button mr-3", title: 'show' do %>
@@ -33,4 +38,4 @@
 
 <br>
 
-<%= link_to 'Nuevo Estilo de moda', new_fashion_style_path %>
+<%= link_to "Nuevo #{FashionStyle.model_name.human}", new_fashion_style_path %>

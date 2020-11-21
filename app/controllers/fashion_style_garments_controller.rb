@@ -20,7 +20,7 @@ class FashionStyleGarmentsController < ApplicationController
 
   # GET /fashion_style_garments/1/edit
   def edit
-    @garment_attributes_hash = GarmentAttribute.for_garments.group_by(&:kind) || []
+    @garment_attributes_hash = @fashion_style_garment&.garment_type&.all_attributes.group_by(&:kind) || GarmentAttribute.for_garments.group_by(&:kind)
   end
 
   # POST /fashion_style_garments
@@ -33,6 +33,7 @@ class FashionStyleGarmentsController < ApplicationController
         format.html { redirect_to @fashion_style_garment, notice: 'Fashion style garment was successfully created.' }
         format.json { render :show, status: :created, location: @fashion_style_garment }
       else
+        @garment_attributes_hash = @fashion_style_garment&.garment_type&.all_attributes.group_by(&:kind) || GarmentAttribute.for_garments.group_by(&:kind)
         format.html { render :new }
         format.json { render json: @fashion_style_garment.errors, status: :unprocessable_entity }
       end
@@ -48,6 +49,7 @@ class FashionStyleGarmentsController < ApplicationController
         format.html { redirect_to @fashion_style_garment, notice: 'Fashion style garment was successfully updated.' }
         format.json { render :show, status: :ok, location: @fashion_style_garment }
       else
+        @garment_attributes_hash = @fashion_style_garment&.garment_type&.all_attributes.group_by(&:kind) || GarmentAttribute.for_garments.group_by(&:kind)
         format.html { render :edit }
         format.json { render json: @fashion_style_garment.errors, status: :unprocessable_entity }
       end

@@ -1,7 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Garment Types</h1>
+<h1><%= GarmentType.model_name.human %></h1>
 
+<div class="row my-4">
+  <div class="col-md-4">
+    <input id="filter-objects" type="text" placeholder="Buscar..." class="form-control">
+  </div>
+</div>
 <table class="table">
   <thead>
     <tr>
@@ -13,7 +18,7 @@
 
   <tbody>
     <% @garment_types.each do |garment_type| %>
-      <tr>
+      <tr class="to-filter" data-text="<%= garment_type.name %> <%= garment_type.translated_category %>">
         <td><%= garment_type.name %></td>
         <td><%= garment_type.translated_category %></td>
         <td>
@@ -34,4 +39,4 @@
 
 <br>
 
-<%= link_to 'New Garment Type', new_garment_type_path %>
+<%= link_to "Nuevo #{GarmentType.model_name.human}", new_garment_type_path %>

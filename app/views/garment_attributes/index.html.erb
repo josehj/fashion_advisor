@@ -2,18 +2,23 @@
 
 <h1><%= GarmentAttribute.model_name.human %></h1>
 
+<div class="row my-4">
+  <div class="col-md-4">
+    <input id="filter-objects" type="text" placeholder="Buscar..." class="form-control">
+  </div>
+</div>
 <table class="table">
   <thead>
     <tr>
       <th scope="col"><%= GarmentAttribute.human_attribute_name(:name) %></th>
-      <th scope="col">kind</th>
+      <th scope="col">Tipo</th>
       <th scope="col" colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @garment_attributes.each do |garment_attribute| %>
-      <tr>
+      <tr class="to-filter" data-text="<%= garment_attribute.name %> <%= garment_attribute.translated_kind %>">
         <td><%= garment_attribute.name %></td>
         <td><%= garment_attribute.translated_kind %></td>
         <td>
@@ -34,4 +39,4 @@
 
 <br>
 
-<%= link_to 'New Garment Attribute', new_garment_attribute_path %>
+<%= link_to "Nuevo #{GarmentAttribute.model_name.human}", new_garment_attribute_path %>

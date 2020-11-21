@@ -2,19 +2,24 @@
 
 <h1>Atributo por Cuerpos</h1>
 
+<div class="row my-4">
+  <div class="col-md-4">
+    <input id="filter-objects" type="text" placeholder="Buscar..." class="form-control">
+  </div>
+</div>
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">Tipo de cuerpo</th>
+      <th scope="col">Prenda</th>
       <th scope="col">Categoria</th>
-      <th scope="col">Estilo</th>
+      <th scope="col">Tipo de cuerpo</th>
       <th scope="col" colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @body_garments.each do |body_garment| %>
-      <tr>
+      <tr class="to-filter" data-text="<%= body_garment.garment_type.name %> <%= body_garment.body.name %>">
         <td><%= body_garment.garment_type.name %></td>
         <td><%= body_garment.garment_type.translated_category %></td>
         <td><%= body_garment.body.name %></td>

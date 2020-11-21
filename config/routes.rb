@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   namespace :welcome do
     post :search
     get :accepted_attributes
+    get :accepted_sizes
   end
 
   match "*path" => "welcome#index", via: [:get, :post]

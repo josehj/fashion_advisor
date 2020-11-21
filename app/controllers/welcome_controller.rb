@@ -13,9 +13,8 @@ class WelcomeController < ApplicationController
   end
 
   def accepted_attributes
-    ic_params = params[:fashion_style_garment] || params[:body_garment]
-    if ic_params
-      garment_type = GarmentType.find(ic_params[:garment_type_id])
+    if params[:garment_type_id]
+      garment_type = GarmentType.find(params[:garment_type_id])
       @garment_attributes_hash = garment_type.all_attributes.group_by(&:kind) || []
     else
       @garment_attributes_hash = GarmentAttribute.for_garments.group_by(&:kind) || []
@@ -24,6 +23,14 @@ class WelcomeController < ApplicationController
     render action: :accepted_attributes, layout: false
   end
 
-  def index
+  def accepted_sizes
+    if params[:garment_type_id]
+      garment_type = GarmentType.find(params[:garment_type_id])
+      @sizes = garment_type.is_bottom? ? GarmentAttribute.bottom_size : GarmentAttribute.top_size 
+    else
+      @sizes = GarmentAttribute.top_size + GarmentAttribute.bottom_size || []
+    end
+    render action: :accepted_sizes, layout: false
   end
+
 end

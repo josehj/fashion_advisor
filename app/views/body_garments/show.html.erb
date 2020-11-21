@@ -1,19 +1,21 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Body:</strong>
+  <strong>Cuerpo:</strong>
   <%= @body_garment.body.name %>
 </p>
 
 <p>
-  <strong>Garment type:</strong>
+  <strong>Tipo de prenda:</strong>
   <%= @body_garment.garment_type.name %>
 </p>
+
+<h4 class="mb-4">Atributos: </h4>
 
 <div class="row">
   <% @body_garment.all_attributes.group_by(&:kind).each do |key, values| %>
     <div class="col-sm-4">
-      <strong>Atributos <%= GarmentAttribute.translated_kind(key) %>:</strong>
+      <strong> <%= GarmentAttribute.translated_kind(key) %>:</strong>
       <ul>
       <% values.each do |value| %>
         <li><%= value.name %></li>
