@@ -1,49 +1,57 @@
 <h1>Recomendador de moda</h1>
 
 <h3 class="mb-4">Resultados : </h3>
-<p>
-  <strong><%= GarmentType.model_name.human %></strong>
-  <%= @garment_type&.name || "no encontrado" %>
-</p>
 
-<p>
-  <strong><%= FashionStyle.model_name.human %></strong>
-  <%= @fashion_style&.name || "no encontrado" %>
-</p>
+<div class="row">
+  <div class="col-sm-4">
+    <div>
+      <strong><%= GarmentType.model_name.human %></strong>
+      <%= @garment_type&.name || "no encontrado" %>
+    </div>
 
-<p>
-  <strong><%= Body.model_name.human %></strong>
-  <%= @body&.name || "no encontrado" %>
-</p>
+    <div>
+      <strong><%= FashionStyle.model_name.human %></strong>
+      <%= @fashion_style&.name || "no encontrado" %>
+    </div>
 
-<p>
-  <strong>Color</strong>
-  <ul>
-    <% @colors.each do |color| %>
-      <li><%= color.name %></li>
-    <%end%>
-  </ul>
-</p>
-<p>
-  <strong>Talla</strong>
-  <%= @body_size&.name || "no encontrado" %>
-</p>
+    <div>
+      <strong><%= Body.model_name.human %></strong>
+      <%= @body&.name || "no encontrado" %>
+    </div>
+    <div>
+      <strong>Talla</strong>
+      <%= @body_size&.name || "no encontrado" %>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div>
+      <strong>Color</strong>
+      <ul>
+        <% @colors.each do |color| %>
+          <li><%= color.name %></li>
+        <%end%>
+      </ul>
+    </div>
+  </div>
+</div>
 
 <h4 class="mb-4">Atributos: </h4>
 
 <% if @garment_attributes.empty? %>
   no se encontro ninguna conincidencia
 <%else%>
-  <% @garment_attributes.group_by(&:kind).each do |key, values| %>
-    <p>
-      <strong><%= GarmentAttribute.translated_kind(key) %>:</strong>
-      <ul>
-      <% values.each do |value| %>
-        <li><%= value.name %></li>
-      <%end%>
-      </ul>
-    </p>
-  <%end%>
+  <div class="row">
+    <% @garment_attributes.group_by(&:kind).each do |key, values| %>
+      <div class="col-sm-4">
+        <strong><%= GarmentAttribute.translated_kind(key) %>:</strong>
+          <ul>
+          <% values.each do |value| %>
+            <li><%= value.name %></li>
+          <%end%>
+          </ul>
+      </div>
+    <%end%>
+  </div>
 <%end%>
 
 

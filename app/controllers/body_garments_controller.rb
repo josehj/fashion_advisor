@@ -4,7 +4,7 @@ class BodyGarmentsController < ApplicationController
   # GET /body_garments
   # GET /body_garments.json
   def index
-    @body_garments = BodyGarment.all
+    @body_garments = BodyGarment.all.includes(:body, :garment_type, :all_attributes)
   end
 
   # GET /body_garments/1

@@ -4,7 +4,7 @@ class FashionStyleGarmentsController < ApplicationController
   # GET /fashion_style_garments
   # GET /fashion_style_garments.json
   def index
-    @fashion_style_garments = FashionStyleGarment.all
+    @fashion_style_garments = FashionStyleGarment.all.includes(:fashion_style, :garment_type, :all_attributes)
   end
 
   # GET /fashion_style_garments/1

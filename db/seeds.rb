@@ -6,7 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars'  }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-include WelcomeHelper
+include StyleAttributesHelper
+include FitAttributesHelper
 
 fashion_styles = [
   { name: 'BOHO' },
@@ -15,13 +16,13 @@ fashion_styles = [
   { name: 'ROCK' }
 ]
 
-Body.create([
-              { name: 'Pera' },
-              { name: 'Reloj de arena' },
-              { name: 'Rectangulo' },
-              { name: 'Triángulo invertido' },
-              { name: 'Rombo' }
-            ])
+bodies = [
+  { name: 'PERA' },
+  { name: 'RELOJ ARENA' },
+  { name: 'RECTANGULO' },
+  { name: 'TRIANGULO INVERTIDO' },
+  { name: 'REDONDO' }
+]
 
 garment_types = [
   { name: 'BLUSAS', category: 1 },
@@ -44,7 +45,7 @@ garment_types = [
   { name: 'PATAS', category: 5 },
   { name: 'JOGGERS', category: 5 },
   { name: 'SHORTS', category: 6 },
-  { name: 'SKORT', category: 6 },
+  { name: 'SKORTS', category: 6 },
   { name: 'FALDAS', category: 6 }
 ]
   
@@ -104,6 +105,7 @@ garment_types = [
   { name: 'SLIP', kind: 16 },
   { name: 'SMOCK', kind: 16 },
   { name: 'WRAP', kind: 16 },
+  { name: 'PEPLUM', kind: 16 },
   { name: 'FIT & FLARE (AJUSTADO Y ACAMPANADO)', kind: 16 },
   { name: 'CINTURA CAIDA (AÑOS 20)', kind: 16 },
   { name: 'CORTE IMPERIO (ABAJO PECHUGA)', kind: 16 },
@@ -261,6 +263,11 @@ garment_types = [
 all_fashion_styles = {}
 fashion_styles.each do |fs|
   all_fashion_styles[fs[:name]] = FashionStyle.create(name: fs[:name])
+end
+
+all_bodies = {}
+bodies.each do |bd|
+  all_bodies[bd[:name]] = Body.create(name: bd[:name])
 end
 
 all_garment_attributes = {}
@@ -892,46 +899,46 @@ GarmentTypePermittedAttribute.create([
   {garment_type: all_garment_types['FALDAS'], garment_attribute: all_garment_attributes["OTRO-12"]},
   {garment_type: all_garment_types['FALDAS'], garment_attribute: all_garment_attributes["NINGUNO-12"]},
 
-  {garment_type: all_garment_types['SKORT'], garment_attribute: all_garment_attributes["PLUMETI-5"]},
-  {garment_type: all_garment_types['SKORT'], garment_attribute: all_garment_attributes["JACQUARD-5"]},
-  {garment_type: all_garment_types['SKORT'], garment_attribute: all_garment_attributes["BLUE JEAN-5"]},
-  {garment_type: all_garment_types['SKORT'], garment_attribute: all_garment_attributes["TENCEL-5"]},
-  {garment_type: all_garment_types['SKORT'], garment_attribute: all_garment_attributes["TERCIOPELO-5"]},
-  {garment_type: all_garment_types['SKORT'], garment_attribute: all_garment_attributes["PLUSH-5"]},
-  {garment_type: all_garment_types['SKORT'], garment_attribute: all_garment_attributes["LINO-5"]},
-  {garment_type: all_garment_types['SKORT'], garment_attribute: all_garment_attributes["GAMUZA-5"]},
-  {garment_type: all_garment_types['SKORT'], garment_attribute: all_garment_attributes["ALGODON-5"]},
-  {garment_type: all_garment_types['SKORT'], garment_attribute: all_garment_attributes["CUERO-5"]},
-  {garment_type: all_garment_types['SKORT'], garment_attribute: all_garment_attributes["ECO CUERO-5"]},
-  {garment_type: all_garment_types['SKORT'], garment_attribute: all_garment_attributes["COTELE-5"]},
-  {garment_type: all_garment_types['SKORT'], garment_attribute: all_garment_attributes["BRODERIE-5"]},
-  {garment_type: all_garment_types['SKORT'], garment_attribute: all_garment_attributes["OTRA-5"]},
-  {garment_type: all_garment_types['SKORT'], garment_attribute: all_garment_attributes["CHEVRON (ZIGZAG)-6"]},
-  {garment_type: all_garment_types['SKORT'], garment_attribute: all_garment_attributes["FLORES-6"]},
-  {garment_type: all_garment_types['SKORT'], garment_attribute: all_garment_attributes["TIE DYE-6"]},
-  {garment_type: all_garment_types['SKORT'], garment_attribute: all_garment_attributes["PAISLEY-6"]},
-  {garment_type: all_garment_types['SKORT'], garment_attribute: all_garment_attributes["ANIMAL PRINT-6"]},
-  {garment_type: all_garment_types['SKORT'], garment_attribute: all_garment_attributes["GINHAM-6"]},
-  {garment_type: all_garment_types['SKORT'], garment_attribute: all_garment_attributes["PRINCIPE DE GALES-6"]},
-  {garment_type: all_garment_types['SKORT'], garment_attribute: all_garment_attributes["CAMUFLADO-6"]},
-  {garment_type: all_garment_types['SKORT'], garment_attribute: all_garment_attributes["RAYAS-6"]},
-  {garment_type: all_garment_types['SKORT'], garment_attribute: all_garment_attributes["PUNTOS-6"]},
-  {garment_type: all_garment_types['SKORT'], garment_attribute: all_garment_attributes["TROPICAL-6"]},
-  {garment_type: all_garment_types['SKORT'], garment_attribute: all_garment_attributes["LISO-6"]},
-  {garment_type: all_garment_types['SKORT'], garment_attribute: all_garment_attributes["OTRO-6"]},
-  {garment_type: all_garment_types['SKORT'], garment_attribute: all_garment_attributes["ENCAJE-12"]},
-  {garment_type: all_garment_types['SKORT'], garment_attribute: all_garment_attributes["TULL-12"]},
-  {garment_type: all_garment_types['SKORT'], garment_attribute: all_garment_attributes["FLECOS-12"]},
-  {garment_type: all_garment_types['SKORT'], garment_attribute: all_garment_attributes["TACHAS-12"]},
-  {garment_type: all_garment_types['SKORT'], garment_attribute: all_garment_attributes["DESTROY-12"]},
-  {garment_type: all_garment_types['SKORT'], garment_attribute: all_garment_attributes["LENTEJUELAS-12"]},
-  {garment_type: all_garment_types['SKORT'], garment_attribute: all_garment_attributes["BORDADO-12"]},
-  {garment_type: all_garment_types['SKORT'], garment_attribute: all_garment_attributes["MOSTACILLAS-12"]},
-  {garment_type: all_garment_types['SKORT'], garment_attribute: all_garment_attributes["TRANSPARENCIA-12"]},
-  {garment_type: all_garment_types['SKORT'], garment_attribute: all_garment_attributes["OJETILLOS-12"]},
-  {garment_type: all_garment_types['SKORT'], garment_attribute: all_garment_attributes["ACID WASH-12"]},
-  {garment_type: all_garment_types['SKORT'], garment_attribute: all_garment_attributes["OTRO-12"]},
-  {garment_type: all_garment_types['SKORT'], garment_attribute: all_garment_attributes["NINGUNO-12"]},
+  {garment_type: all_garment_types['SKORTS'], garment_attribute: all_garment_attributes["PLUMETI-5"]},
+  {garment_type: all_garment_types['SKORTS'], garment_attribute: all_garment_attributes["JACQUARD-5"]},
+  {garment_type: all_garment_types['SKORTS'], garment_attribute: all_garment_attributes["BLUE JEAN-5"]},
+  {garment_type: all_garment_types['SKORTS'], garment_attribute: all_garment_attributes["TENCEL-5"]},
+  {garment_type: all_garment_types['SKORTS'], garment_attribute: all_garment_attributes["TERCIOPELO-5"]},
+  {garment_type: all_garment_types['SKORTS'], garment_attribute: all_garment_attributes["PLUSH-5"]},
+  {garment_type: all_garment_types['SKORTS'], garment_attribute: all_garment_attributes["LINO-5"]},
+  {garment_type: all_garment_types['SKORTS'], garment_attribute: all_garment_attributes["GAMUZA-5"]},
+  {garment_type: all_garment_types['SKORTS'], garment_attribute: all_garment_attributes["ALGODON-5"]},
+  {garment_type: all_garment_types['SKORTS'], garment_attribute: all_garment_attributes["CUERO-5"]},
+  {garment_type: all_garment_types['SKORTS'], garment_attribute: all_garment_attributes["ECO CUERO-5"]},
+  {garment_type: all_garment_types['SKORTS'], garment_attribute: all_garment_attributes["COTELE-5"]},
+  {garment_type: all_garment_types['SKORTS'], garment_attribute: all_garment_attributes["BRODERIE-5"]},
+  {garment_type: all_garment_types['SKORTS'], garment_attribute: all_garment_attributes["OTRA-5"]},
+  {garment_type: all_garment_types['SKORTS'], garment_attribute: all_garment_attributes["CHEVRON (ZIGZAG)-6"]},
+  {garment_type: all_garment_types['SKORTS'], garment_attribute: all_garment_attributes["FLORES-6"]},
+  {garment_type: all_garment_types['SKORTS'], garment_attribute: all_garment_attributes["TIE DYE-6"]},
+  {garment_type: all_garment_types['SKORTS'], garment_attribute: all_garment_attributes["PAISLEY-6"]},
+  {garment_type: all_garment_types['SKORTS'], garment_attribute: all_garment_attributes["ANIMAL PRINT-6"]},
+  {garment_type: all_garment_types['SKORTS'], garment_attribute: all_garment_attributes["GINHAM-6"]},
+  {garment_type: all_garment_types['SKORTS'], garment_attribute: all_garment_attributes["PRINCIPE DE GALES-6"]},
+  {garment_type: all_garment_types['SKORTS'], garment_attribute: all_garment_attributes["CAMUFLADO-6"]},
+  {garment_type: all_garment_types['SKORTS'], garment_attribute: all_garment_attributes["RAYAS-6"]},
+  {garment_type: all_garment_types['SKORTS'], garment_attribute: all_garment_attributes["PUNTOS-6"]},
+  {garment_type: all_garment_types['SKORTS'], garment_attribute: all_garment_attributes["TROPICAL-6"]},
+  {garment_type: all_garment_types['SKORTS'], garment_attribute: all_garment_attributes["LISO-6"]},
+  {garment_type: all_garment_types['SKORTS'], garment_attribute: all_garment_attributes["OTRO-6"]},
+  {garment_type: all_garment_types['SKORTS'], garment_attribute: all_garment_attributes["ENCAJE-12"]},
+  {garment_type: all_garment_types['SKORTS'], garment_attribute: all_garment_attributes["TULL-12"]},
+  {garment_type: all_garment_types['SKORTS'], garment_attribute: all_garment_attributes["FLECOS-12"]},
+  {garment_type: all_garment_types['SKORTS'], garment_attribute: all_garment_attributes["TACHAS-12"]},
+  {garment_type: all_garment_types['SKORTS'], garment_attribute: all_garment_attributes["DESTROY-12"]},
+  {garment_type: all_garment_types['SKORTS'], garment_attribute: all_garment_attributes["LENTEJUELAS-12"]},
+  {garment_type: all_garment_types['SKORTS'], garment_attribute: all_garment_attributes["BORDADO-12"]},
+  {garment_type: all_garment_types['SKORTS'], garment_attribute: all_garment_attributes["MOSTACILLAS-12"]},
+  {garment_type: all_garment_types['SKORTS'], garment_attribute: all_garment_attributes["TRANSPARENCIA-12"]},
+  {garment_type: all_garment_types['SKORTS'], garment_attribute: all_garment_attributes["OJETILLOS-12"]},
+  {garment_type: all_garment_types['SKORTS'], garment_attribute: all_garment_attributes["ACID WASH-12"]},
+  {garment_type: all_garment_types['SKORTS'], garment_attribute: all_garment_attributes["OTRO-12"]},
+  {garment_type: all_garment_types['SKORTS'], garment_attribute: all_garment_attributes["NINGUNO-12"]},
 
   {garment_type: all_garment_types['JEANS'], garment_attribute: all_garment_attributes["ALTO (HIGH RISE)-8"]},
   {garment_type: all_garment_types['JEANS'], garment_attribute: all_garment_attributes["NORMAL (A LA CINTURA)-8"]},
@@ -1401,6 +1408,7 @@ GarmentTypePermittedAttribute.create([
   {garment_type: all_garment_types['ENTERITOS'], garment_attribute: all_garment_attributes["NINGUNO-12"]}
 ])
 
+# ##########################################################
 all_garment_by_style = {}
 all_garment_types.each do |keygt, gt|
   all_fashion_styles.each do |keyfs, fs|
@@ -1427,5 +1435,40 @@ end
 romantico_seeds.each do |key, values|
   values.each do |val|
     FashionGarmentAttribute.create(fashion_style_garment: all_garment_by_style["ROMANTICO-#{key}"], garment_attribute: all_garment_attributes[val])
+  end
+end
+
+
+# ##########################################################
+all_garment_by_body = {}
+all_garment_types.each do |keygt, gt|
+  all_bodies.each do |keybd, bd|
+    all_garment_by_body["#{bd.name}-#{gt.name}"] = BodyGarment.create(body: bd, garment_type: gt)
+  end
+end
+
+pera_seeds.each do |key, values|
+  values.each do |val|
+    BodyGarmentAttribute.create(body_garment: all_garment_by_body["PERA-#{key}"], garment_attribute: all_garment_attributes[val])
+  end
+end
+reloj_arena_seeds.each do |key, values|
+  values.each do |val|
+    BodyGarmentAttribute.create(body_garment: all_garment_by_body["RELOJ ARENA-#{key}"], garment_attribute: all_garment_attributes[val])
+  end
+end
+rectangulo_seeds.each do |key, values|
+  values.each do |val|
+    BodyGarmentAttribute.create(body_garment: all_garment_by_body["RECTANGULO-#{key}"], garment_attribute: all_garment_attributes[val])
+  end
+end
+triangulo_invertido_seeds.each do |key, values|
+  values.each do |val|
+    BodyGarmentAttribute.create(body_garment: all_garment_by_body["TRIANGULO INVERTIDO-#{key}"], garment_attribute: all_garment_attributes[val])
+  end
+end
+redondo_seeds.each do |key, values|
+  values.each do |val|
+    BodyGarmentAttribute.create(body_garment: all_garment_by_body["REDONDO-#{key}"], garment_attribute: all_garment_attributes[val])
   end
 end
