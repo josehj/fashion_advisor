@@ -25,9 +25,19 @@
   </div>
   <div class="col-sm-4">
     <div>
-      <strong>Color</strong>
+      <strong>Colores permitidos</strong>
       <ul>
         <% @colors.each do |color| %>
+          <li><%= color.name %></li>
+        <%end%>
+      </ul>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div>
+      <strong>Colores prohibidos</strong>
+      <ul>
+        <% @colors_not.each do |color| %>
           <li><%= color.name %></li>
         <%end%>
       </ul>
